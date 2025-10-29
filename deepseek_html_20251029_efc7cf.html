@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waze Écolo IA - Logistique Intelligente</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <h1>Waze Écolo IA</h1>
+                <span class="beta">BETA</span>
+            </div>
+            <div class="header-stats">
+                <div class="stat">
+                    <i class="fas fa-tree"></i>
+                    <span id="co2-saved">1,247 kg CO₂</span>
+                    <small>Économisés</small>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-road"></i>
+                    <span id="distance-optimized">8,456 km</span>
+                    <small>Optimisés</small>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-bolt"></i>
+                    <span id="ai-recommendations">156</span>
+                    <small>Recommandations IA</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="nav">
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <i class="fas fa-home"></i>
+                    Tableau de bord
+                </a>
+                <a href="#" class="nav-item" data-tab="new-delivery">
+                    <i class="fas fa-shipping-fast"></i>
+                    Nouvelle livraison
+                </a>
+                <a href="#" class="nav-item" data-tab="analysis">
+                    <i class="fas fa-chart-bar"></i>
+                    Analyse IA
+                </a>
+                <a href="#" class="nav-item" data-tab="fleet">
+                    <i class="fas fa-truck"></i>
+                    Ma flotte
+                </a>
+                <a href="#" class="nav-item" data-tab="history">
+                    <i class="fas fa-history"></i>
+                    Historique
+                </a>
+                <a href="#" class="nav-item" data-tab="realtime">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Suivi temps réel
+                </a>
+            </nav>
+
+            <!-- Véhicules disponibles -->
+            <div class="fleet-status">
+                <h3>🛞 Véhicules disponibles</h3>
+                <div id="vehicles-list" class="vehicles-list">
+                    <!-- Rempli dynamiquement par JavaScript -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-header">
+                    <h2>Tableau de bord IA</h2>
+                    <p>Optimisation logistique en temps réel</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Intelligence Artificielle</h3>
+                            <span class="stat-value" id="ai-accuracy">98.2%</span>
+                            <span class="stat-label">Précision des prédictions</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Impact Écologique</h3>
+                            <span class="stat-value" id="co2-reduction">-67%</span>
+                            <span class="stat-label">Réduction CO₂ moyenne</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="fas fa-euro-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Économies</h3>
+                            <span class="stat-value" id="cost-savings">-42%</span>
+                            <span class="stat-label">Réduction des coûts</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card info">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Efficacité</h3>
+                            <span class="stat-value" id="time-savings">-35%</span>
+                            <span class="stat-label">Gain de temps moyen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Actions rapides</h3>
+                    <div class="actions-grid">
+                        <button class="action-btn primary" onclick="showTab('new-delivery')">
+                            <i class="fas fa-plus"></i>
+                            Nouvelle livraison
+                        </button>
+                        <button class="action-btn success" onclick="showTab('analysis')">
+                            <i class="fas fa-chart-line"></i>
+                            Analyse IA
+                        </button>
+                        <button class="action-btn info" onclick="showTab('realtime')">
+                            <i class="fas fa-map"></i>
+                            Carte temps réel
+                        </button>
+                        <button class="action-btn warning" onclick="showTab('fleet')">
+                            <i class="fas fa-cog"></i>
+                            Gérer flotte
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>Activité récente</h3>
+                    <div id="recent-deliveries" class="activity-list">
+                        <!-- Rempli dynamiquement -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autres onglets (similaires à la structure précédente) -->
+            <!-- Le contenu complet est dans les fichiers séparés -->
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Analyse IA en cours</h3>
+            <p id="loading-message">Optimisation de votre itinéraire...</p>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
